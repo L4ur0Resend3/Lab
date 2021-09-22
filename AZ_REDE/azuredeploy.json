@@ -1,0 +1,61 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [{
+
+    "name": "vnet-localiza",
+    "id": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/virtualNetworks/vnet-localiza",
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "eastus",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "a84a36d9-148d-4a8b-ae91-e06cc86f44c8",
+        "addressSpace": {
+            "addressPrefixes": [
+                "10.0.0.0/16"
+            ]
+        },
+        "subnets": [
+            {
+                "name": "GatewaySubnet",
+                "id": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/virtualNetworks/vnet-localiza/subnets/GatewaySubnet",
+                "etag": "W/\"47fd363c-6583-488b-9c86-66fd263dfdde\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "10.0.1.0/24",
+                    "ipConfigurations": [
+                        {
+                            "id": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/virtualNetworkGateways/vng-localiza/ipConfigurations/default"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/virtualNetworks/subnets"
+            },
+            {
+                "name": "default",
+                "id": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/virtualNetworks/vnet-localiza/subnets/default",
+                "etag": "W/\"47fd363c-6583-488b-9c86-66fd263dfdde\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "10.0.0.0/24",
+                    "ipConfigurations": [
+                        {
+                            "id": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/networkInterfaces/sqlendpoint.nic.2bf9ac8d-bfc5-4f87-b4bc-59995b761ebd/ipConfigurations/sqlServer-sqlServer.privateEndpoint"
+                        },
+                        {
+                            "id": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/networkInterfaces/testeazure739/ipConfigurations/ipconfig1"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/virtualNetworks/subnets"
+            }
+        ]
+    }
+}
+    ],
+    "outputs": {}
+}
