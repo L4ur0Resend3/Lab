@@ -1,0 +1,64 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworkGateways_vng_localiza_name": {
+            "defaultValue": "vng-localiza",
+            "type": "String"
+        },
+        "publicIPAddresses_pip_vng_localiza_externalid": {
+            "defaultValue": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/publicIPAddresses/pip-vng-localiza",
+            "type": "String"
+        },
+        "virtualNetworks_vnet_localiza_externalid": {
+            "defaultValue": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/virtualNetworks/vnet-localiza",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworkGateways",
+            "apiVersion": "2020-11-01",
+            "name": "[parameters('virtualNetworkGateways_vng_localiza_name')]",
+            "location": "eastus",
+            "properties": {
+                "enablePrivateIpAddress": false,
+                "ipConfigurations": [
+                    {
+                        "name": "default",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[parameters('publicIPAddresses_pip_vng_localiza_externalid')]"
+                            },
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_vnet_localiza_externalid'), '/subnets/GatewaySubnet')]"
+                            }
+                        }
+                    }
+                ],
+                "sku": {
+                    "name": "Basic",
+                    "tier": "Basic"
+                },
+                "gatewayType": "Vpn",
+                "vpnType": "RouteBased",
+                "enableBgp": false,
+                "activeActive": false,
+                "bgpSettings": {
+                    "asn": 65515,
+                    "bgpPeeringAddress": "10.0.1.254",
+                    "peerWeight": 0,
+                    "bgpPeeringAddresses": [
+                        {
+                            "ipconfigurationId": "[concat(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('virtualNetworkGateways_vng_localiza_name')), '/ipConfigurations/default')]",
+                            "customBgpIpAddresses": []
+                        }
+                    ]
+                },
+                "vpnGatewayGeneration": "Generation1"
+            }
+        }
+    ]
+}
