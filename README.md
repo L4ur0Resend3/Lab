@@ -1,6 +1,6 @@
 # Lab Localiza
 
-**Rede DMZ** 
+**Rede DMZ** - Player Azure
 PIP(IP) - 20.81.17.107
 PIP(DNS) - frontendlablocaliza.eastus.cloudapp.azure.com
 
@@ -12,9 +12,9 @@ Subnet - 10.2.0.0/24
 Container instances - 10.2.0.4 80
 Image - mcr.microsoft.com/azuredocs/aci-helloworld:latest
 
-Player - Azure
 
-**Rede Backend**
+
+**Rede Backend** - Player Azure
 Vnet - vnet-localiza
 Subnet - 10.0.0.0/24
 
@@ -27,9 +27,9 @@ VPN
 Virtual network gateway - vng-localiza
 PIP - 40.71.65.197 (pip-vng-localiza)
 
-Player - Azure
 
-**Rede BD**
+
+**Rede BD** - Player AWS
 
 VPN SiteToSite - AWS_AZURE
 IP - 40.71.65.197
