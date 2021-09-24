@@ -1,0 +1,63 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "containerGroups_frontend_name": {
+            "defaultValue": "frontend",
+            "type": "String"
+        },
+        "networkProfiles_frontend_networkProfile_externalid": {
+            "defaultValue": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/networkProfiles/frontend-networkProfile",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.ContainerInstance/containerGroups",
+            "apiVersion": "2021-03-01",
+            "name": "[parameters('containerGroups_frontend_name')]",
+            "location": "eastus",
+            "properties": {
+                "sku": "Standard",
+                "containers": [
+                    {
+                        "name": "[parameters('containerGroups_frontend_name')]",
+                        "properties": {
+                            "image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+                            "ports": [
+                                {
+                                    "protocol": "TCP",
+                                    "port": 80
+                                }
+                            ],
+                            "environmentVariables": [],
+                            "resources": {
+                                "requests": {
+                                    "memoryInGB": 1.5,
+                                    "cpu": 1
+                                }
+                            }
+                        }
+                    }
+                ],
+                "initContainers": [],
+                "restartPolicy": "OnFailure",
+                "ipAddress": {
+                    "ports": [
+                        {
+                            "protocol": "TCP",
+                            "port": 80
+                        }
+                    ],
+                    "ip": "10.2.0.4",
+                    "type": "Private"
+                },
+                "osType": "Linux",
+                "networkProfile": {
+                    "id": "[parameters('networkProfiles_frontend_networkProfile_externalid')]"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+C:\scripts\LabL\Lab\AZBackEnd\project\todoapi\obj\Release\netcoreapp3.1\PubTmp\Out\todoapi.exe
+C:\scripts\LabL\Lab\AZBackEnd\project\todoapi\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
+C:\scripts\LabL\Lab\AZBackEnd\project\todoapi\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.json
+C:\scripts\LabL\Lab\AZBackEnd\project\todoapi\obj\Release\netcoreapp3.1\PubTmp\Out\todoapi.dll
+C:\scripts\LabL\Lab\AZBackEnd\project\todoapi\obj\Release\netcoreapp3.1\PubTmp\Out\todoapi.deps.json
+C:\scripts\LabL\Lab\AZBackEnd\project\todoapi\obj\Release\netcoreapp3.1\PubTmp\Out\todoapi.runtimeconfig.json
+C:\scripts\LabL\Lab\AZBackEnd\project\todoapi\obj\Release\netcoreapp3.1\PubTmp\Out\todoapi.pdb

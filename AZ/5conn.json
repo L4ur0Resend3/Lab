@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connections_con_localiza_name": {
+            "defaultValue": "con-localiza",
+            "type": "String"
+        },
+        "virtualNetworkGateways_vng_localiza_externalid": {
+            "defaultValue": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/virtualNetworkGateways/vng-localiza",
+            "type": "String"
+        },
+        "localNetworkGateways_lng_localiza_externalid": {
+            "defaultValue": "/subscriptions/41dcece9-9fb6-44e6-b584-de97e543fe28/resourceGroups/rg-localiza/providers/Microsoft.Network/localNetworkGateways/lng-localiza",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/connections",
+            "apiVersion": "2020-11-01",
+            "name": "[parameters('connections_con_localiza_name')]",
+            "location": "eastus",
+            "properties": {
+                "virtualNetworkGateway1": {
+                    "id": "[parameters('virtualNetworkGateways_vng_localiza_externalid')]"
+                },
+                "localNetworkGateway2": {
+                    "id": "[parameters('localNetworkGateways_lng_localiza_externalid')]"
+                },
+                "connectionType": "IPsec",
+                "connectionProtocol": "IKEv2",
+                "routingWeight": 0,
+                "sharedKey": "localiza123",
+                "enableBgp": false,
+                "useLocalAzureIpAddress": false,
+                "usePolicyBasedTrafficSelectors": false,
+                "ipsecPolicies": [],
+                "trafficSelectorPolicies": [],
+                "expressRouteGatewayBypass": false,
+                "dpdTimeoutSeconds": 0,
+                "connectionMode": "Default"
+            }
+        }
+    ]
+}
