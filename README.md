@@ -41,3 +41,7 @@ SubNet - 172.16.32.0/24
 
 EC2 - ec2bd (mysql)
 IP - 172.16.32.151
+
+
+
+![aws](https://user-images.githubusercontent.com/91168566/134672806-ec7945ef-7936-4338-9868-e99b3b782667.png)
