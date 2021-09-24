@@ -45,3 +45,5 @@ IP - 172.16.32.151
 
 
 ![aws](https://user-images.githubusercontent.com/91168566/134672806-ec7945ef-7936-4338-9868-e99b3b782667.png)
+![azure](https://user-images.githubusercontent.com/91168566/134674522-415a950a-251a-4e3c-b4ed-d8ee9fef0eda.png)
+
