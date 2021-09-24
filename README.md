@@ -41,18 +41,3 @@ SubNet - 172.16.32.0/24
 
 EC2 - ec2bd (mysql)
 IP - 172.16.32.151
-
-
-
-
-
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
