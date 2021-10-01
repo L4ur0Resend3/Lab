@@ -17,15 +17,6 @@ New-AzResourceGroupDeployment `
   -Name $deploymentName `
   -TemplateFile $templateFile
 
- 
-#criando vnet VPN
-write-host "Atualizando Vnet-localiza..." -ForegroundColor Cyan
-$templateFile = "C:\scripts\LabL\Lab\AZFrontEnd\1.1vnet.json"
-$today=Get-Date -Format "MM-dd-yyyy"
-$deploymentName="MainDeployVnet"+"$today"
-New-AzResourceGroupDeployment `
-  -Name $deploymentName `
-  -TemplateFile $templateFile 
 
 #criando pip
 write-host "Atualizando pip..." -ForegroundColor Cyan
